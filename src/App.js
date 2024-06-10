@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home/Home';
 import { createBrowserRouter ,RouterProvider} from 'react-router-dom';
 import ProductList from './pages/ProductList/ProductList';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path : '/products',
     element : <ProductList />
+  },
+  {
+    path : '/products/:id',
+    element : <ProductDetail />
   }
 ]);
 

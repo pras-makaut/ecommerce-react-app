@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Category from '../../components/Category';
+import useCategory from '../../hooks/useCategory';
 
 const Home = () => {
-    const [allCategories,setAllCategories] = useState([]);
-
-    useEffect(()=>{
-        async function fetchData() {
-            fetch('https://fakestoreapi.com/products/categories')
-            .then(res=>res.json())
-            .then(json=>setAllCategories(json));
-        }
-        fetchData();
-    },[]);
+    const allCategories = useCategory();
     console.log("all",allCategories);
     return (
         <div className='p-5'>
