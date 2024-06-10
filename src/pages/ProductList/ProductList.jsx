@@ -7,8 +7,9 @@ const ProductList = () => {
     const [query] = useSearchParams();
     console.log("category",query.get("category"));
     const [products,setProducts]  = useState([]);
+    const cagtegoryToBeFetched = query.get("category");
     function fetchProducts(){
-        fetch('https://fakestoreapi.com/products')
+        fetch((cagtegoryToBeFetched === "All Products") ?'https://fakestoreapi.com/products/' : `https://fakestoreapi.com/products/category/${query.get("category")}`)
             .then(res=>res.json())
             .then(json=>setProducts(json));
     }
